@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header/Header";
 
 const Result = ({ result, url }) => {
+  const [imageDimensions, setImageDimensions] = useState(null);
+
+  const handleImageLoad = (event) => {
+    const { naturalWidth, naturalHeight } = event.target;
+    setImageDimensions({ width: naturalWidth, height: naturalHeight });
+  };
+
+  console.log(imageDimensions);
+
   return (
     <div>
       {url && (
         <img
           src={url}
-          alt="uploaded image"
-          //   style={{ maxWidth: "100%", height: "auto" }}
+          onLoad={handleImageLoad}
+          style={{ maxWidth: "50%", maxHeight: "600px" }}
         />
       )}
-      {result.map((face, index) => (
+      {/* {result.map((face, index) => (
         <div key={index}>
           <div
             style={{
@@ -54,7 +63,7 @@ const Result = ({ result, url }) => {
             </p>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      {/* <Header /> */}
+      <Header />
       {showResult ? (
         <Result result={result} url={url} />
       ) : (

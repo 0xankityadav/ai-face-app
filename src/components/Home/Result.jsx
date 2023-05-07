@@ -51,7 +51,8 @@ const Result = ({ result, url }) => {
                 imageUrlDimensions?.width,
               top:
                 (face.faceRectangle.top * renderedImageDimensions?.height) /
-                imageUrlDimensions?.height,
+                  imageUrlDimensions?.height +
+                90,
               width:
                 (face.faceRectangle.width * renderedImageDimensions?.width) /
                 imageUrlDimensions?.width,

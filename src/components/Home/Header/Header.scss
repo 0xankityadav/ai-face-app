@@ -1,28 +1,27 @@
 .header-content {
-    height: 12%;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
-    padding-right: 5%;
-    padding-top: 1%;
-    box-sizing: border-box;
-    color: azure;
-    .logo {
-        width: 50px;
-        cursor: pointer;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  padding-right: 5%;
+  padding-top: 1%;
+  box-sizing: border-box;
+  color: azure;
+  .logo {
+    width: 50px;
+    cursor: pointer;
+  }
+  .right {
+    flex: auto;
+    text-align: right;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-left: 110px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
     }
-    .right {
-        flex: auto;
-        text-align: right;
-        li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 110px;
-            cursor: pointer;
-            &:hover {
-                opacity: 0.6;
-            }
-        }
-
-    }
+  }
 }

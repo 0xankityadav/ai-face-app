@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header/Header";
+import ImageCropper from "./ImageCropper";
 
 const Result = ({ result, url }) => {
   const [imageUrlDimensions, setImageUrlDimensions] = useState(null);
@@ -24,7 +25,7 @@ const Result = ({ result, url }) => {
   }, [url]);
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       {url && (
         <img
           ref={imgRef}
@@ -61,6 +62,18 @@ const Result = ({ result, url }) => {
                 imageUrlDimensions?.height,
             }}
           ></div>
+          <div>
+            <ImageCropper
+              imageUrl={url}
+              cropData={{
+                top: face.faceRectangle.top,
+                left: face.faceRectangle.left,
+                width: face.faceRectangle.width,
+                height: face.faceRectangle.height,
+              }}
+              style={{ maxWidth: 150, maxHeight: 400 }}
+            />
+          </div>
           {/* <div
             style={{
               position: "absolute",

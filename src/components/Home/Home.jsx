@@ -42,7 +42,7 @@ const Home = () => {
             <p>
               An application that utilizes Azure AI services to recognize
               people's faces and provide information about their facial
-              features.
+              features. Masti
             </p>
             <label htmlFor="file-upload" className="upload-img-btn">
               <input

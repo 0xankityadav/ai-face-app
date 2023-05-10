@@ -7,6 +7,7 @@ import Output from "./Output/Output";
 import { useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import animation from "../../assets/143740-ai-powered-marketing-tools-abstract.json";
+import blockchain from "../../assets/blockchain.json";
 
 const Home = ({ setResult, result, setUrl, url }) => {
   const [showResult, setShowResult] = useState(false);
@@ -45,7 +46,7 @@ const Home = ({ setResult, result, setUrl, url }) => {
       {isLoading ? (
         <div className="loader-container">
           <Player
-            src={animation}
+            src={blockchain}
             background="transparent"
             speed="1"
             style={{ width: "30em", marginBottom: "10em" }}

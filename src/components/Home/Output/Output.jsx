@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import ImageCropper from "../ImageCropper";
 
 import "./Output.scss";
 import Person from "../Person/Person";
@@ -30,7 +29,6 @@ const Output = ({ result, url }) => {
             <img
               ref={imgRef}
               src={url}
-              //   onLoad={handleImageLoad}
               style={{ maxWidth: "50%", maxHeight: "600px" }}
               onLoad={() => {
                 const { clientWidth, clientHeight } = imgRef.current;
@@ -65,48 +63,6 @@ const Output = ({ result, url }) => {
                     imageUrlDimensions?.height,
                 }}
               ></div>
-              {/* <div>
-                <ImageCropper
-                  imageUrl={url}
-                  cropData={{
-                    top: face.faceRectangle.top,
-                    left: face.faceRectangle.left,
-                    width: face.faceRectangle.width,
-                    height: face.faceRectangle.height,
-                  }}
-                  style={{ maxWidth: 150, maxHeight: 400 }}
-                />
-              </div> */}
-              {/* <div
-            style={{
-              position: "absolute",
-              left: face.faceRectangle.left,
-              top: face.faceRectangle.top - 40,
-            }}
-          >
-            <p>Glasses: {face.faceAttributes.glasses}</p>
-            <p>Blur Level: {face.faceAttributes.blur.blurLevel}</p>
-            <p>Exposure Level: {face.faceAttributes.exposure.exposureLevel}</p>
-            <p>Noise Level: {face.faceAttributes.noise.noiseLevel}</p>
-            <p>
-              Accessories:{" "}
-              {face.faceAttributes.accessories
-                .map((accessory) => accessory.type)
-                .join(", ") || "None"}
-            </p>
-            <p>
-              Forehead Occluded:{" "}
-              {face.faceAttributes.occlusion.foreheadOccluded ? "Yes" : "No"}
-            </p>
-            <p>
-              Eye Occluded:{" "}
-              {face.faceAttributes.occlusion.eyeOccluded ? "Yes" : "No"}
-            </p>
-            <p>
-              Mouth Occluded:{" "}
-              {face.faceAttributes.occlusion.mouthOccluded ? "Yes" : "No"}
-            </p>
-          </div> */}
             </div>
           ))}
         </div>
@@ -116,9 +72,6 @@ const Output = ({ result, url }) => {
           {result?.map((face, index) => (
             <Person key={index} face={face} url={url} />
           ))}
-          {/* <Person />
-          <Person />
-          <Person /> */}
         </div>
       </div>
     </div>

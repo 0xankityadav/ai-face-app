@@ -20,6 +20,7 @@ const Output = ({ result, url }) => {
     }
   }, [url]);
 
+  console.log(result);
   return (
     <div className="main-div">
       <Header />

@@ -26,7 +26,24 @@ const Person = ({ face, url }) => {
         <li>Blur Level: {face.faceAttributes.blur.blurLevel}</li>
         <li>Exposure Level: {face.faceAttributes.exposure.exposureLevel}</li>
         <li>Noise Level: {face.faceAttributes.noise.noiseLevel}</li>
-        <li>Feature 5</li>
+        <li>
+          Accessories:{" "}
+          {face.faceAttributes.accessories
+            .map((accessory) => accessory.type)
+            .join(", ") || "None"}
+        </li>
+        <li>
+          Forehead Occluded:{" "}
+          {face.faceAttributes.occlusion.foreheadOccluded ? "Yes" : "No"}
+        </li>
+        <li>
+          Eye Occluded:{" "}
+          {face.faceAttributes.occlusion.eyeOccluded ? "Yes" : "No"}
+        </li>
+        <li>
+          Mouth Occluded:{" "}
+          {face.faceAttributes.occlusion.mouthOccluded ? "Yes" : "No"}
+        </li>
       </div>
     </div>
   );

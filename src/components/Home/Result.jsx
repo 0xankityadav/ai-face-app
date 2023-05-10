@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import Header from "./Header/Header";
-import ImageCropper from "./ImageCropper";
+// import Header from "./Header/Header";//
+// import ImageCropper from "./ImageCropper";
 
 const Result = ({ result, url }) => {
   const [imageUrlDimensions, setImageUrlDimensions] = useState(null);
@@ -39,13 +39,14 @@ const Result = ({ result, url }) => {
               height: clientHeight,
             });
           }}
+          alt="img"
         />
       )}
       {result?.map((face, index) => (
         <div key={index}>
           <div
             style={{
-              border: "2px solid green",
+              border: "2px solid #39FF14",
               position: "absolute",
               left:
                 (face.faceRectangle.left * renderedImageDimensions?.width) /
@@ -63,7 +64,7 @@ const Result = ({ result, url }) => {
             }}
           ></div>
           <div>
-            <ImageCropper
+            {/* <ImageCropper
               imageUrl={url}
               cropData={{
                 top: face.faceRectangle.top,
@@ -72,7 +73,7 @@ const Result = ({ result, url }) => {
                 height: face.faceRectangle.height,
               }}
               style={{ maxWidth: 150, maxHeight: 400 }}
-            />
+            /> */}
           </div>
           {/* <div
             style={{

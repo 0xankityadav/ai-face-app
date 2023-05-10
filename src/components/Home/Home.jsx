@@ -3,11 +3,15 @@ import Header from "./Header/Header";
 import "./Home.scss";
 import detectFace from "../../api/detectFace";
 import Result from "./Result";
+import Output from "./Output/Output";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [result, setResult] = useState();
   const [url, setUrl] = useState();
   const [showResult, setShowResult] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleImageUpload = async (e) => {
     const data = new FormData();
@@ -25,6 +29,7 @@ const Home = () => {
       const resultAi = await detectFace(dataJson.url);
       setResult(resultAi);
       setShowResult(true);
+      //navigate("output");
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +39,8 @@ const Home = () => {
     <div className="container">
       <Header />
       {showResult ? (
-        <Result result={result} url={url} />
+        //<Result result={result} url={url} />
+        <Output result={result} url={url} />
       ) : (
         <div className="row">
           <div className="col">
@@ -42,7 +48,7 @@ const Home = () => {
             <p>
               An application that utilizes Azure AI services to recognize
               people's faces and provide information about their facial
-              features. Masti
+              features.
             </p>
             <label htmlFor="file-upload" className="upload-img-btn">
               <input

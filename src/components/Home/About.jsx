@@ -1,7 +1,52 @@
 import React from "react";
+import Header from "./Header/Header";
+import "./About.scss";
 
 const About = () => {
-  return <div>This is about page</div>;
+  return (
+    <div className="container-about">
+      <Header />
+      <h1>About AI Face App</h1>
+      <p>
+        AI Face App is a web application that allows users to upload images and
+        detect facial features using Azure Face API. With this app, users can
+        detect and recognize faces, analyze facial attributes like age, gender,
+        and emotions, and identify faces in a group photo.
+      </p>
+      <h2>How it works</h2>
+      <p>
+        To use AI Face App, simply upload an image containing a face, and the
+        app will use Azure Face API to analyze the image and detect facial
+        features. Once the analysis is complete, you can view the results and
+        see details about the detected features.
+      </p>
+      <h2>Technologies Used</h2>
+      <ul>
+        <li>ReactJS</li>
+        <li>Azure Face API</li>
+        <li>HTML5 & CSS3</li>
+        <li>JavaScript</li>
+      </ul>
+      <h2>Privacy Policy</h2>
+      <p>
+        AI Face App is committed to protecting your privacy. We do not store any
+        images that you upload to the app, and we do not share any of your
+        personal information with third parties. All images are deleted from our
+        servers immediately after analysis is complete.
+      </p>
+
+      <div className="author">
+        {/* <p>Created by: John Doe</p> */}
+        <a
+          href="https://github.com/0xankityadav/ai-face-app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Visit my GitHub
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default About;

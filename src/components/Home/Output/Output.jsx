@@ -3,6 +3,7 @@ import ImageCropper from "../ImageCropper";
 
 import "./Output.scss";
 import Person from "../Person/Person";
+import Header from "../Header/Header";
 
 const Output = ({ result, url }) => {
   const [imageUrlDimensions, setImageUrlDimensions] = useState(null);
@@ -21,6 +22,7 @@ const Output = ({ result, url }) => {
 
   return (
     <div className="main-div">
+      <Header />
       <div className="left-block">
         <div style={{ display: "flex" }}>
           {url && (
@@ -62,7 +64,7 @@ const Output = ({ result, url }) => {
                     imageUrlDimensions?.height,
                 }}
               ></div>
-              <div>
+              {/* <div>
                 <ImageCropper
                   imageUrl={url}
                   cropData={{
@@ -73,7 +75,7 @@ const Output = ({ result, url }) => {
                   }}
                   style={{ maxWidth: 150, maxHeight: 400 }}
                 />
-              </div>
+              </div> */}
               {/* <div
             style={{
               position: "absolute",
@@ -110,9 +112,12 @@ const Output = ({ result, url }) => {
       </div>
       <div className="right-block">
         <div className="persons">
+          {result?.map((face, index) => (
+            <Person key={index} face={face} url={url} />
+          ))}
+          {/* <Person />
           <Person />
-          <Person />
-          <Person />
+          <Person /> */}
         </div>
       </div>
     </div>

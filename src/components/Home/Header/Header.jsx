@@ -1,8 +1,9 @@
 import React from "react";
 import logo from "../../../assets/app-logo.png";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header>
       <div className="header-content">
@@ -12,8 +13,8 @@ const Header = () => {
           </Link>
         </div>
         <ul className="right">
-          <li>Home</li>
-          <li>About</li>
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/about")}>About</li>
         </ul>
       </div>
     </header>

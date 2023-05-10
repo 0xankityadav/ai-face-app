@@ -5,11 +5,12 @@ import detectFace from "../../api/detectFace";
 import Result from "./Result";
 import Output from "./Output/Output";
 import { useNavigate } from "react-router-dom";
+import { Player } from "@lottiefiles/react-lottie-player";
+import animation from "../../assets/143740-ai-powered-marketing-tools-abstract.json";
 
-const Home = () => {
-  const [result, setResult] = useState();
-  const [url, setUrl] = useState();
+const Home = ({ setResult, result, setUrl, url }) => {
   const [showResult, setShowResult] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ const Home = () => {
     data.append("cloud_name", "darom5sdn");
 
     try {
+      setIsLoading(true);
       const res = await fetch(process.env.REACT_APP_CLOUDINARY_URI, {
         method: "post",
         body: data,
@@ -28,19 +30,30 @@ const Home = () => {
       setUrl(dataJson.url);
       const resultAi = await detectFace(dataJson.url);
       setResult(resultAi);
-      setShowResult(true);
-      //navigate("output");
+      // setShowResult(true);
+      navigate("/output");
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="container">
       <Header />
-      {showResult ? (
-        //<Result result={result} url={url} />
-        <Output result={result} url={url} />
+      {isLoading ? (
+        <div className="loader-container">
+          <Player
+            src={animation}
+            background="transparent"
+            speed="1"
+            style={{ width: "30em", marginBottom: "10em" }}
+            loop
+            controls
+            autoplay
+          />
+        </div>
       ) : (
         <div className="row">
           <div className="col">

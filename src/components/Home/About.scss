@@ -1,0 +1,51 @@
+.container-about {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../assets/background.jpg);
+  background-position: center;
+  background-size: cover;
+
+  overflow: auto;
+
+  h1 {
+    // font-size: 32px;
+    margin-bottom: 20px;
+    color: azure;
+  }
+  h2 {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: azure;
+  }
+  ul {
+    list-style: disc;
+    margin-left: 20px;
+    color: azure;
+  }
+  p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: azure;
+  }
+  .author {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-right: 10px;
+      color: azure;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: azure;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #007bff;
+    }
+  }
+}

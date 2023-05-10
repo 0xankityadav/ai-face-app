@@ -1,25 +1,27 @@
 .main-div {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../../../assets/output-bg.webp);
-    background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../../assets/output-bg.webp);
+  background-size: cover;
 }
 
 .left-block {
-    width: 50%;
-    height: 100vh;
-    float: left;
-    color: white;
+  width: 50%;
+  //   height: 100vh;
+  float: left;
+  color: white;
 }
 
 .right-block {
-    width: 50%;
-    height: 100vh;
-    float: right;
-    color: white;
+  width: 50%;
+  height: 80%;
+  float: right;
+  color: white;
 }
 
 .persons {
-    text-align: center;
-    margin: 25px 40px;
+  text-align: center;
+  margin: 25px 40px;
+  height: 100%;
+  overflow-x: auto;
 }

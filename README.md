@@ -9,5 +9,3 @@ Face Insight AI is a web application that allows users to upload images and dete
 ## How it works
 
 To use Face Insight AI, simply upload an image containing a face, and the app will use Azure Face API to analyze the image and detect facial features. Once the analysis is complete, you can view the results and see details about the detected features.
-
-## Tech Stack

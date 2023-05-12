@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "./Header/Header";
 import "./Home.scss";
 import detectFace from "../../api/detectFace";
-import Result from "./Result";
-import Output from "./Output/Output";
 import { useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
-import animation from "../../assets/143740-ai-powered-marketing-tools-abstract.json";
 import blockchain from "../../assets/blockchain.json";
 
 const Home = ({ setResult, result, setUrl, url }) => {
-  const [showResult, setShowResult] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -31,7 +27,6 @@ const Home = ({ setResult, result, setUrl, url }) => {
       setUrl(dataJson.url);
       const resultAi = await detectFace(dataJson.url);
       setResult(resultAi);
-      // setShowResult(true);
       navigate("/output");
     } catch (error) {
       console.log(error);
@@ -58,7 +53,7 @@ const Home = ({ setResult, result, setUrl, url }) => {
       ) : (
         <div className="row">
           <div className="col">
-            <h1>AI Face App</h1>
+            <h1>Face Insight AI</h1>
             <p>
               An application that utilizes Azure AI services to recognize
               people's faces and provide information about their facial

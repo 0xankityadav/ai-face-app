@@ -6,17 +6,17 @@ const About = () => {
   return (
     <div className="container-about">
       <Header />
-      <h1>About AI Face App</h1>
+      <h1>About the app</h1>
       <p>
-        AI Face App is a web application that allows users to upload images and
-        detect facial features using Azure Face API. With this app, users can
-        detect and recognize faces, analyze facial attributes like age, gender,
-        and emotions, and identify faces in a group photo.
+        Face Insight AI is a web application that allows users to upload images
+        and detect facial features using Azure Face API. With this app, users
+        can detect and recognize faces, analyze facial attributes like age,
+        gender, and emotions, and identify faces in a group photo.
       </p>
       <h2>How it works</h2>
       <p>
-        To use AI Face App, simply upload an image containing a face, and the
-        app will use Azure Face API to analyze the image and detect facial
+        To use Face Insight AI, simply upload an image containing a face, and
+        the app will use Azure Face API to analyze the image and detect facial
         features. Once the analysis is complete, you can view the results and
         see details about the detected features.
       </p>
@@ -29,20 +29,19 @@ const About = () => {
       </ul>
       <h2>Privacy Policy</h2>
       <p>
-        AI Face App is committed to protecting your privacy. We do not store any
-        images that you upload to the app, and we do not share any of your
+        Face Insight AI is committed to protecting your privacy. We do not store
+        any images that you upload to the app, and we do not share any of your
         personal information with third parties. All images are deleted from our
         servers immediately after analysis is complete.
       </p>
 
       <div className="author">
-        {/* <p>Created by: John Doe</p> */}
         <a
           href="https://github.com/0xankityadav/ai-face-app"
           target="_blank"
           rel="noreferrer"
         >
-          Visit my GitHub
+          Visit GitHub
         </a>
       </div>
     </div>

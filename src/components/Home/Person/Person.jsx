@@ -1,6 +1,4 @@
 import React from "react";
-
-import anubhav from "../../../assets/app-logo.png";
 import ImageCropper from "../ImageCropper";
 
 import "./Person.scss";

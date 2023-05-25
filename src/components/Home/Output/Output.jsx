@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 const Output = ({ result, url }) => {
   const [imageUrlDimensions, setImageUrlDimensions] = useState(null);
   const [renderedImageDimensions, setRenderedImageDimensions] = useState(null);
+  const [show, setShow] = useState(true);
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -20,16 +21,20 @@ const Output = ({ result, url }) => {
   }, [url]);
 
   console.log(result);
+
+  const toggleShow = () => {
+    setShow(!show);
+  };
+
   return (
     <div className="main-div">
       <Header />
-      <div className="left-block">
-        <div style={{ display: "flex" }}>
+      <div className="output-container">
+        <div className={`left-block ${show ? "show" : "hide"}`}>
           {url && (
             <img
               ref={imgRef}
               src={url}
-              style={{ maxWidth: "50%", maxHeight: "600px" }}
               onLoad={() => {
                 const { clientWidth, clientHeight } = imgRef.current;
                 setRenderedImageDimensions({
@@ -48,11 +53,12 @@ const Output = ({ result, url }) => {
                   position: "absolute",
                   left:
                     (face.faceRectangle.left * renderedImageDimensions?.width) /
-                    imageUrlDimensions?.width,
+                      imageUrlDimensions?.width +
+                    20,
                   top:
                     (face.faceRectangle.top * renderedImageDimensions?.height) /
                       imageUrlDimensions?.height +
-                    90,
+                    110,
                   width:
                     (face.faceRectangle.width *
                       renderedImageDimensions?.width) /
@@ -66,14 +72,17 @@ const Output = ({ result, url }) => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="right-block">
-        <div className="persons">
-          {result?.map((face, index) => (
-            <Person key={index} face={face} url={url} />
-          ))}
+        <div className={`right-block ${show ? "hide" : "show"}`}>
+          <div className="persons">
+            {result?.map((face, index) => (
+              <Person key={index} face={face} url={url} />
+            ))}
+          </div>
         </div>
       </div>
+      <button className="toggle-button" onClick={toggleShow}>
+        {show ? "Show Attributes" : "Show Image"}
+      </button>
     </div>
   );
 };

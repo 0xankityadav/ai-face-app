@@ -33,6 +33,13 @@
   .col {
     flex-basis: 50%;
   }
+  .col-cards {
+    flex-basis: 50%;
+
+    @media only screen and (max-width: 1095px) {
+      display: none;
+    }
+  }
   h1 {
     color: azure;
     font-size: 75px;

@@ -70,7 +70,7 @@ const Home = ({ setResult, result, setUrl, url }) => {
               Upload Image
             </label>
           </div>
-          <div className="col">
+          <div className="col-cards">
             <div className="card card1"></div>
             <div className="card card2"></div>
             <div className="card card3"></div>

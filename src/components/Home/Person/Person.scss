@@ -1,36 +1,44 @@
 .person-card {
-    position: relative;
-    display: flex;
-    padding: 10px;
-    margin: 15px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.37);
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .facial-features {
-    padding: 0 10px;
-    width: 100%;
-    text-align: left;
+  padding: 0 10px;
+  width: 100%;
+  text-align: left;
 }
 
 .thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .person-img {
-    
-    background-color: aliceblue;
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
+  background-color: aliceblue;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }

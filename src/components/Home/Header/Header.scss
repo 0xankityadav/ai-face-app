@@ -7,17 +7,21 @@
   padding-top: 1%;
   box-sizing: border-box;
   color: azure;
+  justify-content: space-between;
   .logo {
     width: 50px;
     cursor: pointer;
   }
   .right {
-    flex: auto;
+    // flex: auto;
+    display: flex;
+    justify-content: space-around;
     text-align: right;
+    gap: 2em;
     li {
       list-style: none;
       display: inline-block;
-      margin-left: 110px;
+      // margin-left: 6rem;
       cursor: pointer;
       &:hover {
         opacity: 0.6;

@@ -3,25 +3,108 @@
   height: 100vh;
   background-image: url(../../../assets/output-bg.webp);
   background-size: cover;
-}
+  // overflow-y: unset;
+  // overflow-x: unset;
 
-.left-block {
-  width: 50%;
-  //   height: 100vh;
-  float: left;
-  color: white;
-}
+  // @media only screen and (max-width: 768px) {
+  //   overflow-y: auto;
+  //   overflow-x: unset;
+  // }
 
-.right-block {
-  width: 50%;
-  height: 80%;
-  float: right;
-  color: white;
-}
+  .show {
+    display: block;
+  }
 
-.persons {
-  text-align: center;
-  margin: 25px 40px;
-  height: 100%;
-  overflow-x: auto;
+  .hide {
+    display: block;
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .toggle-button {
+    position: fixed;
+    bottom: 3em;
+    right: 2em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    color: #000;
+    background-color: #fff;
+    border: 0;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0 0 5px #fff, 0 0 15px #fff;
+    display: none;
+
+    &:hover {
+      background-color: #000;
+      border-color: #fff;
+      color: #fff;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .output-container {
+    display: flex;
+    flex-direction: row;
+    // overflow-x: unset;
+
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+      overflow-x: auto;
+    }
+
+    .left-block {
+      width: 50%;
+      //   height: 100vh;
+      float: left;
+      color: white;
+      // display: flex;
+      padding: 20px;
+      overflow: unset;
+
+      img {
+        max-width: 100%;
+        max-height: 35em;
+
+        @media only screen and (max-width: 768px) {
+          max-width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        width: 88%;
+      }
+    }
+
+    .right-block {
+      width: 50%;
+      height: 80%;
+      float: right;
+      color: white;
+      padding: 2em;
+
+      @media only screen and (max-width: 768px) {
+        width: 100%;
+        padding: 0em;
+      }
+
+      .persons {
+        text-align: center;
+        // margin: 25px 40px;
+        height: 35em;
+        overflow-x: auto;
+
+        @media only screen and (max-width: 768px) {
+          height: 30em;
+        }
+      }
+    }
+  }
 }

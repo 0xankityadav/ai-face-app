@@ -12,7 +12,8 @@ const About = () => {
           Face Insight AI is a web application that allows users to upload
           images and detect facial features using Azure Face API. With this app,
           users can detect and recognize faces, analyze facial attributes like
-          age, gender, and emotions, and identify faces in a group photo.
+          glasses, blur level, exposure level, noise level, accessories, etc and
+          identify faces in a group photo.
         </p>
         <h2>How it works</h2>
         <p>

@@ -24,9 +24,9 @@ const Person = ({ face, url }) => {
         <h3>Facial Features</h3>
         <ul>
           <li>Landmarks detected: {face.faceLandmarks.length}</li>
-          <li>Confidence: {(face.faceAttributes.landmark_confidence * 100).toFixed(1)}%</li>
+          {/* <li>Confidence: {(face.faceAttributes.landmark_confidence * 100).toFixed(1)}%</li> */}
           <li>Estimated Age: {face.faceAttributes.age}</li>
-          <li>Gender: {face.faceAttributes.gender}</li>
+          {/* <li>Gender: {face.faceAttributes.gender}</li> */}
         </ul>
 
         <h3>Emotions</h3>

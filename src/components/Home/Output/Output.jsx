@@ -29,7 +29,7 @@ const Output = ({ result, url }) => {
 
     return {
       left: rect.topLeft[0] * scaleX,
-      top: rect.topLeft[1] * scaleY + 110,
+      top: rect.topLeft[1] * scaleY,
       width: (rect.bottomRight[0] - rect.topLeft[0]) * scaleX,
       height: (rect.bottomRight[1] - rect.topLeft[1]) * scaleY,
     };
@@ -57,18 +57,16 @@ const Output = ({ result, url }) => {
           {faces.map((face, index) => {
             const scaledRect = scaleRectangle(face.faceRectangle);
             return (
-              <div key={index}>
-                <div
-                  style={{
-                    border: "2px solid #39FF14",
-                    position: "absolute",
-                    left: scaledRect.left,
-                    top: scaledRect.top,
-                    width: scaledRect.width,
-                    height: scaledRect.height,
-                  }}
-                />
-              </div>
+              <div
+                key={index}
+                className="face-rectangle"
+                style={{
+                  left: `${scaledRect.left * 1.05}px`,
+                  top: `${scaledRect.top - 20}px`,
+                  width: `${scaledRect.width}px`,
+                  height: `${scaledRect.height * 2}px`,
+                }}
+              />
             );
           })}
         </div>

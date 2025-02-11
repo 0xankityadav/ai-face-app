@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import "./Output.scss";
 import Person from "../Person/Person";
 import Header from "../Header/Header";
@@ -10,6 +9,8 @@ const Output = ({ result, url }) => {
   const [show, setShow] = useState(true);
   const imgRef = useRef(null);
 
+  const faces = Array.isArray(result) ? result : result ? [result] : [];
+
   useEffect(() => {
     if (url) {
       const img = new Image();
@@ -19,8 +20,6 @@ const Output = ({ result, url }) => {
       img.src = url;
     }
   }, [url]);
-
-  console.log(result);
 
   const toggleShow = () => {
     setShow(!show);
@@ -45,28 +44,16 @@ const Output = ({ result, url }) => {
               alt="img"
             />
           )}
-          {result?.map((face, index) => (
+          {faces.map((face, index) => (
             <div key={index}>
               <div
                 style={{
                   border: "2px solid #39FF14",
                   position: "absolute",
-                  left:
-                    (face.faceRectangle.left * renderedImageDimensions?.width) /
-                      imageUrlDimensions?.width +
-                    20,
-                  top:
-                    (face.faceRectangle.top * renderedImageDimensions?.height) /
-                      imageUrlDimensions?.height +
-                    110,
-                  width:
-                    (face.faceRectangle.width *
-                      renderedImageDimensions?.width) /
-                    imageUrlDimensions?.width,
-                  height:
-                    (face.faceRectangle.height *
-                      renderedImageDimensions?.height) /
-                    imageUrlDimensions?.height,
+                  left: face.faceRectangle.topLeft[0],
+                  top: face.faceRectangle.topLeft[1] + 110,
+                  width: face.faceRectangle.bottomRight[0] - face.faceRectangle.topLeft[0],
+                  height: face.faceRectangle.bottomRight[1] - face.faceRectangle.topLeft[1],
                 }}
               ></div>
             </div>
@@ -74,7 +61,7 @@ const Output = ({ result, url }) => {
         </div>
         <div className={`right-block ${show ? "hide" : "show"}`}>
           <div className="persons">
-            {result?.map((face, index) => (
+            {faces.map((face, index) => (
               <Person key={index} face={face} url={url} />
             ))}
           </div>

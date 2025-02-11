@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@tensorflow-models/blazeface": "^0.1.0",
+    "@tensorflow-models/face-landmarks-detection": "^1.0.6",
+    "@tensorflow/tfjs": "^4.22.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -42,6 +45,14 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "source-map-loader": "^5.0.0"
+  },
+  "source-map-loader": {
+    "exclude": [
+      "node_modules/@tensorflow-models/blazeface"
     ]
   }
 }

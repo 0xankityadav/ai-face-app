@@ -9,7 +9,7 @@ const Output = ({ result, url }) => {
   const [show, setShow] = useState(true);
   const imgRef = useRef(null);
 
-  const faces = Array.isArray(result) ? result : result ? [result] : [];
+  const faces = Array.isArray(result) ? result : [];
 
   useEffect(() => {
     if (url) {
@@ -21,8 +21,18 @@ const Output = ({ result, url }) => {
     }
   }, [url]);
 
-  const toggleShow = () => {
-    setShow(!show);
+  const scaleRectangle = (rect) => {
+    if (!imageUrlDimensions || !renderedImageDimensions) return rect;
+
+    const scaleX = renderedImageDimensions.width / imageUrlDimensions.width;
+    const scaleY = renderedImageDimensions.height / imageUrlDimensions.height;
+
+    return {
+      left: rect.topLeft[0] * scaleX,
+      top: rect.topLeft[1] * scaleY + 110,
+      width: (rect.bottomRight[0] - rect.topLeft[0]) * scaleX,
+      height: (rect.bottomRight[1] - rect.topLeft[1]) * scaleY,
+    };
   };
 
   return (
@@ -44,20 +54,23 @@ const Output = ({ result, url }) => {
               alt="img"
             />
           )}
-          {faces.map((face, index) => (
-            <div key={index}>
-              <div
-                style={{
-                  border: "2px solid #39FF14",
-                  position: "absolute",
-                  left: face.faceRectangle.topLeft[0],
-                  top: face.faceRectangle.topLeft[1] + 110,
-                  width: face.faceRectangle.bottomRight[0] - face.faceRectangle.topLeft[0],
-                  height: face.faceRectangle.bottomRight[1] - face.faceRectangle.topLeft[1],
-                }}
-              ></div>
-            </div>
-          ))}
+          {faces.map((face, index) => {
+            const scaledRect = scaleRectangle(face.faceRectangle);
+            return (
+              <div key={index}>
+                <div
+                  style={{
+                    border: "2px solid #39FF14",
+                    position: "absolute",
+                    left: scaledRect.left,
+                    top: scaledRect.top,
+                    width: scaledRect.width,
+                    height: scaledRect.height,
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className={`right-block ${show ? "hide" : "show"}`}>
           <div className="persons">
@@ -67,7 +80,7 @@ const Output = ({ result, url }) => {
           </div>
         </div>
       </div>
-      <button className="toggle-button" onClick={toggleShow}>
+      <button className="toggle-button" onClick={() => setShow(!show)}>
         {show ? "Show Attributes" : "Show Image"}
       </button>
     </div>

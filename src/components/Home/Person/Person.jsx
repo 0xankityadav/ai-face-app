@@ -1,10 +1,9 @@
 import React from "react";
 import ImageCropper from "../ImageCropper";
-
 import "./Person.scss";
 
 const Person = ({ face, url }) => {
-  console.log(face);
+  const expressions = face.faceAttributes?.expressions || {};
 
   return (
     <div className="person-card">
@@ -21,17 +20,24 @@ const Person = ({ face, url }) => {
         />
       </div>
 
-      {/* <div className="facial-features">
-        <li>Landmarks: {face.faceLandmarks.length}</li>
-        <li>Glasses: {face.faceAttributes.glasses}</li>
-        <li>Blur Level: {face.faceAttributes.blur.blurLevel}</li>
-        <li>Exposure Level: {face.faceAttributes.exposure.exposureLevel}</li>
-        <li>Noise Level: {face.faceAttributes.noise.noiseLevel}</li>
-        <li>Accessories: {face.faceAttributes.accessories.map((accessory) => accessory.type).join(", ") || "None"}</li>
-        <li>Forehead Occluded: {face.faceAttributes.occlusion.foreheadOccluded ? "Yes" : "No"}</li>
-        <li>Eye Occluded: {face.faceAttributes.occlusion.eyeOccluded ? "Yes" : "No"}</li>
-        <li>Mouth Occluded: {face.faceAttributes.occlusion.mouthOccluded ? "Yes" : "No"}</li>
-      </div> */}
+      <div className="facial-features">
+        <h3>Facial Features</h3>
+        <ul>
+          <li>Landmarks detected: {face.faceLandmarks.length}</li>
+          <li>Confidence: {(face.faceAttributes.landmark_confidence * 100).toFixed(1)}%</li>
+          <li>Estimated Age: {face.faceAttributes.age}</li>
+          <li>Gender: {face.faceAttributes.gender}</li>
+        </ul>
+
+        <h3>Emotions</h3>
+        <ul className="emotions-list">
+          {Object.entries(expressions).map(([emotion, probability]) => (
+            <li key={emotion}>
+              {emotion}: {(probability * 100).toFixed(1)}%
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
